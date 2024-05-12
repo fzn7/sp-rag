@@ -63,7 +63,7 @@ def create_kb_item():
         document = event["data"]["new"]["message_data"]["document"]
 
         if document["mime_type"] == "application/pdf":
-            response = requests.get(f"https://api.telegram.org/bot{os.env["BOT_TOKEN"]}/getFile?file_id={document['file_id']}")
+            response = requests.get(f"https://api.telegram.org/bot{os.environ["BOT_TOKEN"]}/getFile?file_id={document['file_id']}")
             response.raise_for_status()
 
             file_info = response.json()
